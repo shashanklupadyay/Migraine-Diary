@@ -58,20 +58,29 @@ Log an Entry: Use the main dashboard to add a new migraine entry, detailing all 
 Analyze Data: Visit the "Analytics" or "Reports" section to view visualizations and gain insights from your logged data.
 
 📂 Project Structure
+
 .
 ├── public/                 # Static assets (HTML, CSS, images)
+
 ├── src/                    # Main source code
+
 │   ├── components/         # Reusable UI components
+
 │   ├── pages/              # Individual application pages
+
 │   ├── api/                # Backend API routes
+
 │   └── App.js              # Main application component
+
 ├── package.json            # Project dependencies and scripts
+
 ├── .env.example            # Example environment variables
+
 ├── README.md               # The file you're currently reading
-└── LICENSE                 # Project license
+
+
 
 🤝 Contributing
 Your contributions are what make this project great! If you have an idea for a new feature, a bug report, or a code improvement, please open an issue or submit a pull request. Check out our CONTRIBUTING.md for more details.
 
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
