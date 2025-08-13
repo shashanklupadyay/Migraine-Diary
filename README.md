@@ -80,7 +80,6 @@ Analyze Data: Visit the "Analytics" or "Reports" section to view visualizations 
 
 
 
-🤝 Contributing
-Your contributions are what make this project great! If you have an idea for a new feature, a bug report, or a code improvement, please open an issue or submit a pull request. Check out our CONTRIBUTING.md for more details.
+
 
 
