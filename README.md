@@ -33,12 +33,17 @@ Clone the repository:
 git clone https://github.com/your-username/your-migraine-app.git
 cd your-migraine-app
 
-Install the required dependencies:
+Install the required dependencies (separately for each app):
 
+cd backend
 npm install
 
-Set up the environment variables:
-Create a .env file in the root directory and add any necessary configuration, such as database connection strings or API keys.
+cd ../frontend
+npm install
+
+Set up environment variables:
+1. Copy `.env.example` to `.env` for the backend (or copy these values into `backend/.env`).
+2. Create `frontend/.env` and set at least `VITE_API_BASE_URL` (frontend API base URL).
 
 🎮 How to Run
 Once the project is set up, you can start the application.
@@ -46,40 +51,27 @@ Once the project is set up, you can start the application.
 Running the App
 To start the local development server:
 
-npm start
+In one terminal:
+cd backend
+npm run dev
 
-This command will typically run both the backend server and the frontend application. The app will be accessible at http://localhost:3000 or a similar port.
+In a second terminal:
+cd frontend
+npm run dev
+
+Default URLs:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:5050/diary/migranes
 
 Using the App
-Sign up/Log in: Navigate to the app in your browser and create a new account or log in with existing credentials.
+Use the UI to create, view, edit, and delete diary entries.
 
-Log an Entry: Use the main dashboard to add a new migraine entry, detailing all the relevant information.
-
-Analyze Data: Visit the "Analytics" or "Reports" section to view visualizations and gain insights from your logged data.
+AI Insights:
+- Frontend page: `/ai-overview`
+- Backend endpoint: `GET /diary/migranes/ai-overview`
 
 📂 Project Structure
 
-.
-├── public/                 # Static assets (HTML, CSS, images)
-
-├── src/                    # Main source code
-
-│   ├── components/         # Reusable UI components
-
-│   ├── pages/              # Individual application pages
-
-│   ├── api/                # Backend API routes
-
-│   └── App.js              # Main application component
-
-├── package.json            # Project dependencies and scripts
-
-├── .env.example            # Example environment variables
-
-├── README.md               # The file you're currently reading
-
-
-
-
-
-
+- `backend/`: Express API server (MongoDB + Gemini AI)
+- `frontend/`: React + Vite UI
+- `.env.example`: example env vars (copy into the appropriate places)

@@ -6,5 +6,7 @@ import mongoose from "mongoose";
         console.log("MONGODB CONNECTED SUCCESSFULLY!");
     } catch (error) {
         console.error("Error connecting to MONGODB", error);
+        // Fail fast in production so the API doesn't start without a working database.
+        throw error;
     }
 }

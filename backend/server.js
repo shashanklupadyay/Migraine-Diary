@@ -9,8 +9,17 @@ import rateLimiter from "./src/middleware/rateLimiter.js";
 
 const app = express();
 dotenv.config();
+
+// Allow configuring the frontend origin at runtime (useful for production).
+const clientOrigin = process.env.CLIENT_ORIGIN;
+const corsOrigin =
+  clientOrigin && clientOrigin.includes(",")
+    ? clientOrigin.split(",").map((s) => s.trim())
+    : (clientOrigin || "http://localhost:5173");
+
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: corsOrigin,
+    credentials: true,
 }));
 app.use(express.json());
 app.use(rateLimiter);
@@ -19,8 +28,13 @@ app.use(rateLimiter);
 app.use("/diary/migranes", router);
 
 const port = process.env.PORT || 5050;
-connectDB().then(() => {
-    app.listen(port, () => {
-        console.log("server started at port 5050");
+connectDB()
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`server started at port ${port}`);
+        });
+    })
+    .catch((err) => {
+        console.error("Failed to start server due to DB connection error:", err);
+        process.exit(1);
     });
-});

@@ -32,27 +32,6 @@ const EntryDetailPage = () => {
     fetchEntry();
   }, [id, navigate]);
 
-  const formatTimestamp = (timestamp) => {
-    if (!timestamp) return 'Not available';
-    
-    try {
-      const date = new Date(timestamp);
-      if (isNaN(date.getTime())) {
-        return 'Invalid date';
-      }
-      
-      // Format as dd/mm/yyyy
-      const day = date.getDate().toString().padStart(2, '0');
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const year = date.getFullYear();
-      
-      return `${day}/${month}/${year}`;
-    } catch (error) {
-      console.error('Error formatting timestamp:', error);
-      return 'Invalid date';
-    }
-  };
-
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this migraine entry?")) return;
 

@@ -124,6 +124,9 @@ export async function getAiOverview(req, res) {
           (error.response.data.error?.message || "API error."),
       });
     }
-        res.status(500).json({ message: "Failed to generate AI overview. Please try again." });
-      }
-    }
+
+    return res.status(500).json({
+      message: "Failed to generate AI overview. Please try again.",
+    });
+  }
+}
